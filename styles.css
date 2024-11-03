@@ -1,9 +1,8 @@
 lc {
     width: 600px;
     height: 400px;
-    background-color:rgb(34, 34, 34);
+    background-color:rgb(25, 25, 25);
     text-align: center;
-    padding: 70px 0;
     color: white;
     border-radius: 25px;
     font-family: Andale Mono, monospace;
@@ -15,9 +14,8 @@ lc {
 li {
     width: 200px;
     height: 200px;
-    background-color:rgb(34, 34, 34);
+    background-color:rgb(25, 25, 25);
     text-align: center;
-    padding: 70px 0;
     color: white;
     border-radius: 25px;
     margin: 50px;
