@@ -18,7 +18,8 @@ li {
     text-align: center;
     color: white;
     border-radius: 25px;
-    margin: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-family: Andale Mono, monospace;
     font-size: xx-large;
     font-weight: bold;
