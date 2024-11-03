@@ -57,15 +57,14 @@ fl {
   flex-direction: row;
   flex-shrink: 0;
   font-family: Eina01,sans-serif;
-  font-size: 16px;
   font-weight: 800;
   justify-content: center;
   line-height: 24px;
-  margin: 0;
+  margin: 15;
   min-height: 64px;
   outline: none;
   overflow: visible;
-  padding: 19px 26px;
+  padding: 100px;
   pointer-events: auto;
   position: relative;
   text-align: center;
@@ -80,15 +79,9 @@ fl {
   z-index: 0;
 }
 
-@media (min-width: 768px) {
-  .button-78 {
-    padding: 19px 32px;
-  }
-}
-
 .button-78:before,
 .button-78:after {
-  border-radius: 80px;
+  border-radius: 200px;
 }
 
 .button-78:before {
@@ -101,10 +94,6 @@ fl {
   top: 0;
   width: 100%;
   z-index: -2;
-}
-
-.blue,.green,.red,.purple {
-  border-radius: 80px;
 }
 
 .blue:before {
