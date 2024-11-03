@@ -1,20 +1,31 @@
-p {
-    width: 500px;
-    height: 500px;
-    background-color:rgb(61, 61, 61);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+lc {
+    width: 600px;
+    height: 400px;
+    background-color:rgb(40, 40, 40);
+    text-align: center;
+    border-radius: 50px;
+    font-family: Andale Mono, monospace;
+    font-size: xx-large;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(255, 38, 0) 0px 0px 0px 3px;
 }
 
 .block,
 li {
     width: 500px;
     height: 500px;
-    background-color:rgb(61, 61, 61);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color:rgb(40, 40, 40);
+    text-align: center;
+    border-radius: 50px;
+    font-family: Andale Mono, monospace;
+    font-size: xx-large;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(0, 204, 255) 0px 0px 0px 3px;
 }
 
 ul {
     display: flex;
+    justify-content: space-evenly;
     list-style: none;
 }
 
