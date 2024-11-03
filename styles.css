@@ -1,14 +1,9 @@
-body {
-    background: rgb(0,53,64);
-    background: linear-gradient(351deg, rgba(0,53,64,1) 0%, rgba(5,0,83,1) 100%);
-}
-
 lc {
     width: 600px;
     height: 400px;
     background-color:rgb(34, 34, 34);
     text-align: center;
-    justify-content: center;
+    padding: 70px 0;
     color: white;
     border-radius: 25px;
     font-family: Andale Mono, monospace;
@@ -22,9 +17,10 @@ li {
     height: 200px;
     background-color:rgb(34, 34, 34);
     text-align: center;
-    justify-content: center;
+    padding: 70px 0;
     color: white;
     border-radius: 25px;
+    margin: 50px;
     font-family: Andale Mono, monospace;
     font-size: xx-large;
     font-weight: bold;
@@ -51,7 +47,6 @@ fl {
     list-style: none;
     justify-content: center;
     align-items: center;
-    margin: 50px;
     flex-wrap: wrap;
 }
 
@@ -63,9 +58,4 @@ fl {
 .buttons {
     width: 500px;
     height: 500px;
-}
-
-.parent {
-    display: flex;
-    flex-wrap: wrap;
 }
