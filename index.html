@@ -4,14 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Website</title>
+        <title>Life System</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body style="background-color:rgb(15, 15, 15)">
         <fl>
             <fl class="title">
-                <lc>LIFE COINS</lc>
+                <lc>
+                    <p>LIFE COINS</p>
+                    <div id="lifecoins" class="count"></div>
+                </lc>
             </fl>
             <fl class="buttons">
                 <button class="button-78 blue" role="button">🟦</button>
@@ -20,5 +23,19 @@
                 <button class="button-78 purple" role="button">🟪</button>
             </fl>
         </fl>
+        <button class="button-78 purple" role="button" onclick="change(true)" style="margin-left: 600px; padding: 20px; font-size: 20px;">➕</button>
+        <button class="button-78 purple" role="button" onclick="change(false)" style="padding: 20px; font-size: 20px;">➖</button>
+        <script>
+            document.getElementById("lifecoins").innerHTML = localStorage.getItem("lifecoins");
+
+            function change(x) {
+                if (localStorage.lifecoins) {
+                    if (x) localStorage.lifecoins = parseInt(localStorage.lifecoins) + 1;
+                    else localStorage.lifecoins = parseInt(localStorage.lifecoins) - 1;
+                }
+                else localStorage.lifecoins = 0;
+                document.getElementById("lifecoins").innerHTML = localStorage.getItem("lifecoins");
+            }
+        </script>
     </body>
 </html>
