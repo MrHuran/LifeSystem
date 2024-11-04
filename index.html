@@ -13,13 +13,13 @@
             <fl class="title">
                 <lc>
                     <p>LIFE COINS</p>
-                    <fl style="align-items: flex-end; margin-top: 70px;">
+                    <fl style="align-items: flex-end;" class="flcount">
                         <div id="impulseN" class="count"></div>
-                        <div id="impulseD" class="count" style="font-size: 100px; padding-bottom: 25px;"></div>
+                        <div id="impulseD" class="count countD"></div>
                     </fl>
                 </lc>
             </fl>
-            <fl style="flex-direction: column;">
+            <fl class="switch">
                 <input type="checkbox" class="blueC" onchange="grain(true, 1/900, this)">
                 <input type="checkbox" class="greenC" onchange="grain(true, 1/1800, this)">
                 <input type="checkbox" class="redC" onchange="grain(false, 1/1800, this)">
@@ -38,15 +38,17 @@
             function change(x, y) {
                 if (localStorage.lifecoins && !y) {
                     if (x) localStorage.lifecoins = parseFloat(localStorage.lifecoins) + 1;
-                    else localStorage.lifecoins = parseFloat(localStorage.lifecoins) - 1;
+                    else if (localStorage.lifecoins - 1 >= 0) {
+                        localStorage.lifecoins = parseFloat(localStorage.lifecoins) - 1;
+                    }
                 }
                 else {
                     localStorage.lifecoins = 0;
                     localStorage.removeItem("impulseD");
                     document.getElementById("impulseD").innerHTML = null;
                 }
-                localStorage.setItem("impulseN", localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : 1));
-                document.getElementById("impulseN").innerHTML = localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : 1);
+                localStorage.setItem("impulseN", localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : localStorage.lifecoins.length));
+                document.getElementById("impulseN").innerHTML = localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : localStorage.lifecoins.length);
             }
 
             /*function grainInterval(x, y, c){
