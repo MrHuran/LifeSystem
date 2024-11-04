@@ -13,28 +13,76 @@
             <fl class="title">
                 <lc>
                     <p>LIFE COINS</p>
-                    <div id="lifecoins" class="count"></div>
+                    <fl style="align-items: flex-end; margin-top: 70px;">
+                        <div id="impulseN" class="count"></div>
+                        <div id="impulseD" class="count" style="font-size: 100px; padding-bottom: 25px;"></div>
+                    </fl>
                 </lc>
             </fl>
-            <fl class="buttons">
-                <button class="button-78 blue" role="button">🟦</button>
-                <button class="button-78 green" role="button">🟩</button>
-                <button class="button-78 red " role="button">🟥</button>
-                <button class="button-78 purple" role="button">🟪</button>
+            <fl style="flex-direction: column;">
+                <input type="checkbox" class="blueC" onchange="grain(true, 1/900, this)">
+                <input type="checkbox" class="greenC" onchange="grain(true, 1/1800, this)">
+                <input type="checkbox" class="redC" onchange="grain(false, 1/1800, this)">
+                <input type="checkbox" class="purpleC" onchange="grain(false, 1/900, this)">
             </fl>
         </fl>
-        <button class="button-78 purple" role="button" onclick="change(true)" style="margin-left: 600px; padding: 20px; font-size: 20px;">➕</button>
-        <button class="button-78 purple" role="button" onclick="change(false)" style="padding: 20px; font-size: 20px;">➖</button>
+        <fl>
+            <button class="button-78 purple" role="button" onclick="change(true, false)" style="padding: 20px; font-size: 20px;">➕</button>
+            <button class="button-78 purple" role="button" onclick="change(false, false)" style="padding: 20px; font-size: 20px;">➖</button>
+            <button class="button-78 red" role="button" onclick="change(true, true)" style="padding: 20px; font-size: 20px;">⭕</button>
+        </fl>
         <script>
-            document.getElementById("lifecoins").innerHTML = localStorage.getItem("lifecoins");
+            document.getElementById("impulseN").innerHTML = localStorage.getItem("impulseN");
+            document.getElementById("impulseD").innerHTML = localStorage.getItem("impulseD");
 
-            function change(x) {
-                if (localStorage.lifecoins) {
-                    if (x) localStorage.lifecoins = parseInt(localStorage.lifecoins) + 1;
-                    else localStorage.lifecoins = parseInt(localStorage.lifecoins) - 1;
+            function change(x, y) {
+                if (localStorage.lifecoins && !y) {
+                    if (x) localStorage.lifecoins = parseFloat(localStorage.lifecoins) + 1;
+                    else localStorage.lifecoins = parseFloat(localStorage.lifecoins) - 1;
                 }
-                else localStorage.lifecoins = 0;
-                document.getElementById("lifecoins").innerHTML = localStorage.getItem("lifecoins");
+                else {
+                    localStorage.lifecoins = 0;
+                    localStorage.removeItem("impulseD");
+                    document.getElementById("impulseD").innerHTML = null;
+                }
+                localStorage.setItem("impulseN", localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : 1));
+                document.getElementById("impulseN").innerHTML = localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : 1);
+            }
+
+            /*function grainInterval(x, y, c){
+                var impulse = JSON.parse(localStorage.getItem("lifecoins")) || 0;
+                if (x) impulse += y;
+                else impulse -= y;
+                var impulseF = impulse.toString();
+                document.getElementById("impulseD").innerHTML = impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4);
+                document.getElementById("impulseN").innerHTML = impulseF.slice(0, impulseF.indexOf("."));
+                localStorage.setItem("lifecoins", impulseF);
+                localStorage.setItem("impulseD", impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4));
+                localStorage.setItem("impulseN", impulseF.slice(0,impulseF.indexOf(".")));
+            };*/
+            
+            function grain(x, y, c) {
+                const intervalID = setInterval(function(){
+                    if (!c.checked) clearInterval(intervalID);
+                    else {
+                        console.log();
+                        var impulse = JSON.parse(localStorage.getItem("lifecoins")) || 0;
+                        if (x) impulse += y;
+                        else impulse -= y;
+                        if (impulse < 0) {
+                            c.checked = false;
+                            impulse = 0;
+                        }
+                        else {
+                            var impulseF = impulse.toString();
+                            document.getElementById("impulseD").innerHTML = impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4);
+                            document.getElementById("impulseN").innerHTML = impulseF.slice(0, impulseF.indexOf("."));
+                            localStorage.setItem("lifecoins", impulseF);
+                            localStorage.setItem("impulseD", impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4));
+                            localStorage.setItem("impulseN", impulseF.slice(0, impulseF.indexOf(".")));
+                        }
+                    }
+                }, 1000);
             }
         </script>
     </body>
