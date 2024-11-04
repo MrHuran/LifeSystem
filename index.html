@@ -75,11 +75,19 @@
                         }
                         else {
                             var impulseF = impulse.toString();
-                            document.getElementById("impulseD").innerHTML = impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4);
-                            document.getElementById("impulseN").innerHTML = impulseF.slice(0, impulseF.indexOf("."));
+                            if (impulseF.indexOf(".") != -1){
+                                document.getElementById("impulseD").innerHTML = impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4);
+                                document.getElementById("impulseN").innerHTML = impulseF.slice(0, impulseF.indexOf("."));
+                                localStorage.setItem("impulseD", impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4));
+                                localStorage.setItem("impulseN", impulseF.slice(0, impulseF.indexOf(".")));
+                            }
+                            else {
+                                document.getElementById("impulseD").innerHTML = null;
+                                document.getElementById("impulseN").innerHTML = impulseF;
+                                localStorage.removeItem("impulseD");
+                                localStorage.setItem("impulseN", impulseF);
+                            }
                             localStorage.setItem("lifecoins", impulseF);
-                            localStorage.setItem("impulseD", impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4));
-                            localStorage.setItem("impulseN", impulseF.slice(0, impulseF.indexOf(".")));
                         }
                     }
                 }, 1000);
