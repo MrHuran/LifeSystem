@@ -327,7 +327,6 @@ body {
     background: rgb(25, 25, 25);
 }
 
-
 /*MOBILE*/
 @media (max-width: 600px) {
   .title {
@@ -348,7 +347,7 @@ body {
     font-weight: bold;
   }
 
-  input {
+  .check {
     --s: 40px;
   }
 
