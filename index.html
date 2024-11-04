@@ -11,7 +11,7 @@
     <body style="background-color:rgb(15, 15, 15)">
         <fl>
             <fl class="title">
-                <lc>
+                <lc id="lc">
                     <p>LIFE POINTS</p>
                     <fl style="align-items: flex-end;" class="flcount">
                         <div id="impulseN" class="count"></div>
@@ -52,21 +52,20 @@
                 document.getElementById("impulseN").innerHTML = localStorage.lifecoins.slice(0,localStorage.lifecoins.indexOf(".") != -1 ? localStorage.lifecoins.indexOf(".") : localStorage.lifecoins.length);
             }
 
-            /*function grainInterval(x, y, c){
-                var impulse = JSON.parse(localStorage.getItem("lifecoins")) || 0;
-                if (x) impulse += y;
-                else impulse -= y;
-                var impulseF = impulse.toString();
-                document.getElementById("impulseD").innerHTML = impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4);
-                document.getElementById("impulseN").innerHTML = impulseF.slice(0, impulseF.indexOf("."));
-                localStorage.setItem("lifecoins", impulseF);
-                localStorage.setItem("impulseD", impulseF.slice(impulseF.indexOf("."), impulseF.indexOf(".") + 4));
-                localStorage.setItem("impulseN", impulseF.slice(0,impulseF.indexOf(".")));
-            };*/
+            function hasClass(element, className) {
+                return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+            }
             
             function grain(x, y, c) {
+                if (hasClass(c, "blueC")) document.getElementById("lc").style.boxShadow = "#00aeff 0px 0px 36px 0px, #00aeff 0px 0px 0px 10px";
+                else if (hasClass(c, "greenC")) document.getElementById("lc").style.boxShadow = "#00ff22 0px 0px 36px 0px, #00ff22 0px 0px 0px 10px";
+                else if (hasClass(c, "redC")) document.getElementById("lc").style.boxShadow = "#ff0000 0px 0px 36px 0px, #ff0000 0px 0px 0px 10px";
+                else document.getElementById("lc").style.boxShadow = "#e100ff 0px 0px 36px 0px, #e100ff 0px 0px 0px 10px";
                 const intervalID = setInterval(function(){
-                    if (!c.checked) clearInterval(intervalID);
+                    if (!c.checked) {
+                        clearInterval(intervalID);
+                        document.getElementById("lc").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 0px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 10px"
+                    }
                     else {
                         console.log();
                         var impulse = JSON.parse(localStorage.getItem("lifecoins")) || 0;
