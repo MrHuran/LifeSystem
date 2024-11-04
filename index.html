@@ -9,6 +9,7 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body style="background-color:rgb(15, 15, 15)">
+        <a href="login.html"><img src="user.png" width="70px" height="70px"/></a>
         <fl>
             <fl class="title">
                 <lc id="lc">
@@ -20,10 +21,10 @@
                 </lc>
             </fl>
             <fl class="switch">
-                <input type="checkbox" class="blueC" onchange="grain(true, 1/900, this)">
-                <input type="checkbox" class="greenC" onchange="grain(true, 1/1800, this)">
-                <input type="checkbox" class="redC" onchange="grain(false, 1/1800, this)">
-                <input type="checkbox" class="purpleC" onchange="grain(false, 1/900, this)">
+                <input type="checkbox" class="blueC check" onchange="grain(true, 1/900, this)">
+                <input type="checkbox" class="greenC check" onchange="grain(true, 1/1800, this)">
+                <input type="checkbox" class="redC check" onchange="grain(false, 1/1800, this)">
+                <input type="checkbox" class="purpleC check" onchange="grain(false, 1/900, this)">
             </fl>
         </fl>
         <fl>
@@ -64,7 +65,7 @@
                 const intervalID = setInterval(function(){
                     if (!c.checked) {
                         clearInterval(intervalID);
-                        document.getElementById("lc").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 0px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 10px"
+                        document.getElementById("lc").style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 0px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
                     }
                     else {
                         console.log();

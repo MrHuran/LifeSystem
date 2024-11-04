@@ -59,6 +59,11 @@ fl {
     height: 600px;
 }
 
+.login {
+    width: 1000px;
+    height: 600px;
+}
+
 /*BUTTON*/
 .button-78 {
   align-items: center;
@@ -111,6 +116,11 @@ fl {
   top: 0;
   width: 100%;
   z-index: -2;
+}
+
+.green{
+  padding: 30px;
+  font-size: x-large;
 }
 
 .blue:before {
@@ -217,7 +227,7 @@ fl {
 }
 
 /*SWITCH*/
-input {
+.check {
   --s: 50px; /* adjust this to control the size*/
   
   height: calc(var(--s) + var(--s)/5);
@@ -293,12 +303,42 @@ body {
   opacity: 0.3;
 }
 
+/*INPUT*/
+.inputL {
+  font-size: 14px;
+  border-radius: 6px;
+  line-height: 1.5;
+  transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+  border: 2px solid rgb(40, 40, 40);
+  color: white;
+  background: rgb(25, 25, 25);
+  display: block;
+  height: 36px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+}
+.inputL:hover {
+    border-color: #5c5c5c;
+}
+.inputL:focus{
+    border-color: #9147ff;
+    background: rgb(25, 25, 25);
+}
+
+
 /*MOBILE*/
 @media (max-width: 600px) {
   .title {
     width: 300px;
     height: 300px;
   } 
+
+  .login {
+    width: 300px;
+    height: 700px;
+  }
 
   .count {
     background-color:rgb(25, 25, 25);
